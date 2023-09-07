@@ -1,0 +1,42 @@
+
+#h1{
+    color:red;
+    font-size: 60px;
+}
+#h3{
+    color:red;
+    font-display: block;
+}
+
+
+#form{
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: aliceblue;
+    margin: 30px;
+    border-radius: 15px;
+}
+input{
+    margin: 20px;
+    border-radius: 8px;
+}
+label{
+    margin: 20px;
+
+}
+button{
+    border-radius: 3px;
+}
+#line{
+    font-size: 11px;
+}
+#password{
+    margin-bottom: 0px;
+}
+a{
+    margin-left: 20px;
+}
+body{
+    background-image: url(https://img.freepik.com/free-vector/technology-background-with-hexagonal-net_79603-303.jpg?size=626&ext=jpg&ga=GA1.1.1205026066.1693897985&semt=ais);
+    

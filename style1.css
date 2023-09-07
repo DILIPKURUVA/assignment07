@@ -1,0 +1,24 @@
+body{
+    background-image: url(https://img.freepik.com/free-vector/technology-background-with-hexagonal-net_79603-303.jpg?size=626&ext=jpg&ga=GA1.1.1205026066.1693897985&semt=ais);
+}#btn1{
+    margin:20px;
+    font-size: 15px;
+
+}
+#btn2{
+    margin: 20px;
+    font-size: 15px;
+}
+#score{
+    margin: 20px;;
+}
+#addbox{
+    margin: 20px;
+    width: 150px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+#score{
+    color: red;
+}

@@ -1,0 +1,117 @@
+<html>
+<head>
+    <title>build</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="main1.js"></script>
+            
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </head>
+<body>
+     <div class="conatiner">
+        <button id="logout" onclick="logout()"; class="glyphicon glyphicon-logout btn btn-danger">logout</button>
+<center><br><br><br><br>
+    <div id="col">
+        <h2 id="score"><b>Score:</b></h2>
+        <h3>addroom</h3>
+        <input type="text" id="addroom" placeholder="Enter your Room"><br>
+        <button id="btn1" onclick="addscore()" class="btn btn-danger">Add Score</button><br>
+        <button id="btn2" onclick="save()" class="btn btn-danger">trending  rooms</button>
+        <br>
+        <div id="div1">
+        </div>
+        <div id="output"></div>
+    </div>
+    <br>
+    <div id="root"><br></div><br>
+</center>
+<script>
+
+ // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyD_btDaI1LnxCkkFVxr5YGeAEn0aGYKDZI",
+  authDomain: "multipage-208b8.firebaseapp.com",
+  databaseURL: "https://multipage-208b8-default-rtdb.firebaseio.com",
+  projectId: "multipage-208b8",
+  storageBucket: "multipage-208b8.appspot.com",
+  messagingSenderId: "408205557556",
+  appId: "1:408205557556:web:81810bc833bc1a5061af61",
+  measurementId: "G-M1TD67CRWC"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+console.log(firebase);
+    
+ var src = 0;
+function addscore(){
+   src = src + 1;
+   document.getElementById("score").innerHTML="Score : "+src;
+
+}
+
+function save(){
+    addroom1=document.getElementById("addroom").value;
+    firebase.database().ref("/").child("addroom1").update({
+        score : src,
+        purpose:addroom1
+    });
+    var newElement=document.createElement("h1");
+    newElement.textContent=addroom1;
+   
+    div1.appendChild(newElement); 
+    
+    input1.value="";
+   
+}
+
+var firebaseRef=firebase.database().ref("addroom1");
+firebaseRef.on("value",function(snapshot){
+       snapshot.forEach(function(element){
+     document.querySelector('#root').innerHTML+='\n'+element.val()+"   ";
+       });
+})
+
+
+
+</script>
+    <style>
+    #body{
+    background-image: url(https://img.freepik.com/free-vector/technology-background-with-hexagonal-net_79603-303.jpg?size=626&ext=jpg&ga=GA1.1.1205026066.1693897985&semt=ais);
+}#btn1{
+    margin:20px;
+    font-size: 15px;
+
+}
+#btn2{
+    margin: 20px;
+    font-size: 15px;
+}
+#score{
+    margin: 20px;;
+}
+#addroom{
+    margin: 20px;
+    width: 150px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+#logout{
+            margin:30px;
+    border-radius: 15px;
+        }         
+         </style>
+</body>
+</html>
